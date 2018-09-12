@@ -14,6 +14,10 @@ public class CheckoutBasket {
 		itemMap = new HashMap<Item, Integer>();
 	}
 	
+	public CheckoutBasket(HashMap<Item, Integer> input) {
+		this.itemMap = input;
+	}
+	
 	public void putItemInBasket(Item item, Integer quantity ) {
 		itemMap.put(item, quantity);
 	}
