@@ -10,18 +10,23 @@ public class PricingEngine {
 	CheckoutBasket cb;
 	
 	public PricingEngine(CheckoutBasket cb) {
+		
 		this.cb = cb;
+		
 	}
 	
 	public Integer calculateTotal() {
 		Integer result = 0;
+
 		Map <Item, Integer> itemMap = cb.getItemMap();
-		for(Item item : itemMap.keySet()) {
-			
-			int quantity = itemMap.get(item);
-			
-			result = result + calcItemPrize(item, quantity);
-			
+		if(itemMap != null) {
+			for(Item item : itemMap.keySet()) {
+
+				int quantity = itemMap.get(item);
+
+				result = result + calcItemPrize(item, quantity);
+
+			}
 		}
 		return result;
 	}

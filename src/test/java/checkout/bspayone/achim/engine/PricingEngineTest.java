@@ -6,12 +6,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import org.xml.sax.HandlerBase;
 
 import checkout.bspayone.achim.model.CheckoutBasket;
 import checkout.bspayone.achim.model.Item;
@@ -24,17 +22,20 @@ public class PricingEngineTest {
 	private static HashMap<Item, Integer> hm1 = new HashMap<Item, Integer>();
 	private static HashMap<Item, Integer> hm2 = new HashMap<Item, Integer>();
 	private static HashMap<Item, Integer> hm3 = new HashMap<Item, Integer>();
-	CheckoutBasket cb = new CheckoutBasket();
+	private static HashMap<Item, Integer> hm4 = new HashMap<Item, Integer>();
 	
 	@Parameters
     public static Collection<Object[]> data() {
     	hm1.put(itemA, 0);
     	hm2.put(itemA, 1);
     	hm3.put(itemA, 4);
-        return Arrays.asList(new Object[][] {     
+    	hm4.put(itemA, 5);
+        return Arrays.asList(new Object[][] {  
+        	  { new CheckoutBasket(null), 0 } ,
                  { new CheckoutBasket(hm1), 0 } ,
                  { new CheckoutBasket(hm2), 3 } ,
-                 { new CheckoutBasket(hm3), 12 } 
+                 { new CheckoutBasket(hm3), 12 } ,
+                 { new CheckoutBasket(hm4), 15 }
            });
     }
 
