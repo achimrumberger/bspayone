@@ -10,10 +10,10 @@ public class Checkout {
 		
 	}
 	
-	public Integer makecheckout(CheckoutBasket cb) {
+	public Double makecheckout(CheckoutBasket cb) {
 		
 		PricingEngine pe = new PricingEngine(cb);
-		Integer totalsum = pe.calculateTotal();
+		Double totalsum = pe.calculateTotal();
 		return totalsum;
 	}
 	
@@ -22,9 +22,9 @@ public class Checkout {
 		
 		Checkout checkout = new Checkout();
 
-		Item itemA = new Item("A", 3, 12, 4);
-		Item itemB = new Item("B", 2, 3, 2);
-		Item itemC = new Item("C", 3, 10, 4);
+		Item itemA = new Item("A", 3.0, 12.0, 4);
+		Item itemB = new Item("B", 2.0, 3.0, 2);
+		Item itemC = new Item("C", 3.0, 10.0, 4);
 		
 		CheckoutBasket cb = new CheckoutBasket();
 		cb.putItemInBasket(itemA, 0);
@@ -32,7 +32,7 @@ public class Checkout {
 		cb.putItemInBasket(itemC, 1);
 		
 		
-		Integer result = checkout.makecheckout(cb);
+		Double result = checkout.makecheckout(cb);
 		System.out.println("and the grand total is: " + result + " euros");
 	}
 

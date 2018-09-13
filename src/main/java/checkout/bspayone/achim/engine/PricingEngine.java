@@ -15,8 +15,8 @@ public class PricingEngine {
 		
 	}
 	
-	public Integer calculateTotal() {
-		Integer result = 0;
+	public Double calculateTotal() {
+		Double result = 0.0;
 
 		Map <Item, Integer> itemMap = cb.getItemMap();
 		if(itemMap != null) {
@@ -31,12 +31,12 @@ public class PricingEngine {
 		return result;
 	}
 	
-	private int calcItemPrize(Item item, int quantity ) {
+	private double calcItemPrize(Item item, int quantity ) {
 		
-		int result = 0;
+		double result = 0;
 		
-		int singlePrice = item.getPrice();
-		int extraPrice = item.getExtraPrice();
+		double singlePrice = item.getPrice();
+		double extraPrice = item.getExtraPrice();
 		int teiler = item.getExtraQuantity();
 		
 		int a = quantity % teiler ;

@@ -1,5 +1,6 @@
 package checkout.bspayone.achim.engine;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
@@ -31,11 +32,11 @@ public class PricingEngineTest {
     	hm3.put(itemA, 4);
     	hm4.put(itemA, 5);
         return Arrays.asList(new Object[][] {  
-        	  { new CheckoutBasket(null), 0 } ,
-                 { new CheckoutBasket(hm1), 0 } ,
-                 { new CheckoutBasket(hm2), 3 } ,
-                 { new CheckoutBasket(hm3), 12 } ,
-                 { new CheckoutBasket(hm4), 15 }
+        	  { new CheckoutBasket(null), 0.0 } ,
+                 { new CheckoutBasket(hm1), 0.0 } ,
+                 { new CheckoutBasket(hm2), 3.0 } ,
+                 { new CheckoutBasket(hm3), 12.0 } ,
+                 { new CheckoutBasket(hm4), 15.0 }
            });
     }
 
@@ -43,9 +44,9 @@ public class PricingEngineTest {
 
 	
 	private CheckoutBasket input;
-	private Integer expected;
+	private Double expected;
 	
-	public PricingEngineTest(CheckoutBasket cb, Integer expected) {
+	public PricingEngineTest(CheckoutBasket cb, Double expected) {
 		
 		this.input = cb;
 		this.expected = expected;
@@ -56,6 +57,6 @@ public class PricingEngineTest {
 	public void calculateTotalTest2() {
 		
 		pe = new PricingEngine(input);
-		assertTrue(expected == pe.calculateTotal());
+		assertEquals(expected, pe.calculateTotal());
 	}
 }

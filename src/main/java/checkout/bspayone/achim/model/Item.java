@@ -3,14 +3,14 @@ package checkout.bspayone.achim.model;
 public class Item {
 	
 	private String name;
-	private int price;
-	private int extraPrice;
+	private double price;
+	private double extraPrice;
 	private int extraQuantity;
 	
 	
 	
 	
-	public Item(String name, int price, int extraPrice, int extraQuantity) {
+	public Item(String name, double price, double extraPrice, int extraQuantity) {
 		super();
 		this.name = name;
 		this.price = price;
@@ -25,16 +25,16 @@ public class Item {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
-	public int getExtraPrice() {
+	public double getExtraPrice() {
 		return extraPrice;
 	}
-	public void setExtraPrice(int extraPrice) {
+	public void setExtraPrice(double extraPrice) {
 		this.extraPrice = extraPrice;
 	}
 	public int getExtraQuantity() {
